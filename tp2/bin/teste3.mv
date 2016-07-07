@@ -1,0 +1,19 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;											;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;					DIVISÃO					;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;											;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;										
+		READ R0				; Lê o divisor.
+		READ R1				; Lê o dividendo.
+		LOAD R4 A 			; Armazena o valor 1 em R4, que servirá para incrementar o quociente.
+LOOP:	SUB R0 R1			; Loop executado até que o resto seja menor que o dividendo.
+		JN FIM
+		ADD R2 R4			; Incrementa R2, que é o quociente da divisão.
+		JMP LOOP
+FIM: 	ADD R0 R1
+		COPY R3 R0			; O resto é armazenado em R3.
+		WRITE R2			; Imprime o quociente da divisão.
+		WRITE R3	 		; Imprime o resto da divisão.
+		HALT				
+A:		WORD 1
+		END

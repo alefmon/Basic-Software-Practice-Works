@@ -1,0 +1,18 @@
+READ R0
+        READ R1
+        STORE R0 A
+        SUB R0 R1
+        LOAD R0 A
+        JN MB
+        COPY R2 R0
+        JMP
+        MB: COPY R2 R1
+        L: PRINT
+        HALT
+        A: WORD 0
+        PRINT: BEGINMACRO
+        WRITE R0
+        WRITE R1
+        WRITE R2
+        ENDMACRO
+        END

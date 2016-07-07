@@ -1,0 +1,25 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;													;;;;;;;;;;
+;;;;;;;;		           EXPONENCIAÇÃO					;;;;;;;;;;
+;;;;;;;;													;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+		READ R0				; Usuario entra um número x
+		READ R1
+		LOAD R5 A 			; Deixa o reg 5 com o valor 1.
+		COPY R2 R0			; R2 será somado ao número x, x vezes .
+		COPY R3 R0			; Faz cópia de x no reg 3, que servirá como contador.
+		COPY R6 R0			; Faz "backup" de x no reg 6.
+		COPY R4 R1			; Faz cópia de y no reg 4, que servirá de contador.
+LOOP: 	SUB R4 R5			; Executa o loop y vezes.
+		JZ TERMINO		
+CICLO: 	SUB R3 R5 			; Executa o ciclo x vezes.
+		JZ FIM			
+		ADD R0 R2			; Adiciona x ao valor total, que está em R0.
+		JMP CICLO
+FIM: 	COPY R3 R6    		; Reg 3 volta a ser x.
+		COPY R2 R0
+		JMP LOOP		
+TERMINO: WRITE R0			; imprime o valor de x^y.
+		HALT
+A: 		WORD 1		
+		END

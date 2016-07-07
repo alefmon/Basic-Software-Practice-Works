@@ -1,0 +1,7 @@
+MACRO1: BEGINMACRO
+       LOAD A
+       ADD B
+       STORE A
+       ENDMACRO
+       MACRO1
+       MACRO1

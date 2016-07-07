@@ -1,0 +1,17 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;													;;;;;;;;;;
+;;;;;;;;		CALCULA Xˆ2 DO VALOR ENTRADO PELO USUÁRIO   ;;;;;;;;;;
+;;;;;;;;													;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+		READ R0				; Usuario entra um número x
+		LOAD R4 A
+		COPY R2 R0			; R2 será somado ao número x, x vezes .
+		COPY R3 R0			; Faz cópia de x, que servirá como contador.
+CICLO: 	SUB R3 R4 			; desincrementa o contador R3.
+		JZ FIM				; Caso o contador seja 0, R0 já contém xˆ2.
+		ADD R0 R2
+		JMP CICLO
+FIM: 	WRITE R0		
+		HALT
+A: 		WORD 1
+		END
